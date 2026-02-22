@@ -1,0 +1,216 @@
+/* GLOBAL STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    padding: 30px;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    font-weight: 300;
+    background-color: #a79a8a;
+    color:#3e3630;
+}
+
+h2 {
+    font-family: "Times New Roman", serif;
+    font-weight: 700;
+    padding-bottom: 20px;
+    color:#3e3630;
+}
+
+/* HEADER STYLES */
+header {
+    background-color: #add3ff;
+}
+
+#logo-img {
+    width: 10%;
+    justify-content: center;
+}
+
+ul.nav-list {
+    list-style: none;
+    display: flex;
+    column-gap: 40px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #3e3630;
+}
+
+.nav-link:hover {
+    background-color: #fcf7df;
+    padding: 10px 20px;
+    border-radius: 900px;
+    transition: all 0.3s;
+}
+
+.header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* LANDING PAGES STYLES*/
+section.landing-page {
+    background-image: url("portfolio-imgs/polka-dot-background.png");
+    background-size: 103%;
+    background-repeat: no-repeat;
+}
+
+div#landing-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img#portfolio-graphic {
+    width: 100%;
+}
+
+/* ABOUT ME STYLES */
+img#pfp {
+    max-width: 300px;
+    height: max-content;
+    border-radius: 20px;
+    float: left;
+    margin: 0 25px 10px 0;
+}
+
+div#about-me {
+    align-items: top;
+    overflow: hidden;
+    background-color: #fcf7df;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+p#note {
+    font-weight: 700;
+}
+
+/* SKILLS & EXPERIENCE STYLES */
+div#technical-skills {
+    background-color: #fcf7df;
+    padding: 40px;
+    border-radius: 20px;
+}
+div#skills-img {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 20px;
+}
+#skills-img img {
+    display: flex;
+    width: 8%;
+}
+
+#skills-img-text p {
+    font-weight: 600;
+    color:#3e3630;
+}
+
+div#skills-img-text {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 20px 0 20px;
+    margin: 0px 40px;
+    column-gap: 10%;
+}
+
+/* CONTACTS SECTION - GENERAL */
+div#contacts-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+}
+
+/* CONTACTS STYLES (CONTACT LIST) */
+div#contact-list {
+    display: flex;
+    flex-grow: 1;
+    background-color: #fcf7df;
+    padding: 30px 30px 30px 40px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+#contact-list-img img {
+    width: 40px;
+}
+
+div#contact-list-img {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+ul.contact-list {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 25px;
+    list-style: none;
+    gap: 40px;
+}
+
+#contact-list a {
+    text-decoration: none;
+    color:#3e3630;
+}
+
+#contact-list a:hover {
+    color: #add3ff;
+}
+
+/* FOOTER STYLES */
+footer {
+    background-color: #add3ff;
+    color: #3e3630;
+    padding: 20px;
+    text-align: center;
+}
+
+/* MEDIA QUERIES */
+@media (max-width: 660px) {
+    .header-section {
+        flex-direction: column;
+        padding: 30px 0;
+        row-gap: 20px;
+    }
+
+    .nav-list {
+        column-gap: 20px;
+    }
+    
+
+    div#skills-img {
+        justify-content: space-evenly;
+        column-gap: 10%;
+        width: 90%;
+    }
+
+    div#skills-img-text {
+        margin: 0 20px;
+    }
+    
+    div#contacts-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #logo-img {
+        width: 30%;
+    }
+}

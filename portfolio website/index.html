@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Portfolio Site ˚⟡˖ ࣪ </title>
+  <link href="styles.css" rel="stylesheet">
+  <!-- Google Font Import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header> <!-- Header w/ navigation links -->
+    <div class="header-section">
+      <img src="portfolio-imgs/logo.png" id="logo-img" alt="logo-img">
+
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a class="nav-link" href="#about-me-section"> About Me </a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills-experience-section"> Skills & Experience </a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacts-section"> Contacts </a></li>
+        </ul> 
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="landing-page">
+      <div class="container" id="landing-page">
+        <img src="portfolio-imgs/portfolio-opener.png" id="portfolio-graphic" alt="portfolio-graphic">
+      </div>
+    </section>
+
+    <section id="about-me-section"> <!-- About Me Section -->
+    <h2> About Me </h2> 
+    <div class="container" id="about-me"> 
+      <img src="https://media.licdn.com/dms/image/v2/D5603AQE7kzY_bqjPvg/profile-displayphoto-crop_800_800/B56ZvOjIXcIUAM-/0/1768696875641?e=1771459200&v=beta&t=nb3Ksmt88deVmiby0RN7uJ8pdHUW65ijDS271qCzrXA" id="pfp" alt="profile-pic">
+      <p class="about-me-text">
+        Hello! I'm Caitlyn Ly, and welcome to my first static site, which will serve as an About Me page and portfolio! 
+        I am a first year student at the University of Texas at Arlington, pursuing an Honors Bachelor of Science in Computer 
+        Science. I plan to also pursue a minor in Forensic Applications of Science and Technology (FAST). <br><br>
+         
+        My background in programming and computer science started in high school, where I learned Python. This is where
+        everything began! When I started my first semester at UTA, I began learning C and UNIX, and in my free time I learned
+        HTML, CSS, and Git. Currently, I am working through learning JavaScript. <br><br>
+      
+        My interests not only include software development, but also digital forensics. I am pursuing a minor in FAST
+        in hopes of obtaining the career of Digital Forensic Analyst post-graduation. <br><br>
+      </p>
+      <p class="about-me-text" id="note">
+        Please note that this site will be modified regularly. I am actively working to improve this as my skills grow!
+      </p>
+    </div>
+    </section>
+
+    <section id="skills-experience-section"> <!-- Skills & Experience Section -->
+      <h2> Skills & Experience </h2> 
+      <div class="container" id="technical-skills">
+        <div class="container" id="skills-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/C_Programming_Language.svg/500px-C_Programming_Language.svg.png" id="c" alt="c-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/500px-HTML5_logo_and_wordmark.svg.png" id="html" alt="html-img">
+          <img src="https://cdn.freebiesupply.com/logos/large/2x/css3-logo-png-transparent.png" id="css" alt="css-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/3840px-Python-logo-notext.svg.png" id="python" alt="python-img">
+          <img src="https://1000logos.net/wp-content/uploads/2023/03/UNIX-Symbol.png" id="unix" alt="unix-img">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/3840px-Git_icon.svg.png" id="git" alt="git-img">
+        </div>
+        <div class="container" id="skills-img-text">
+          <p> C </p>
+          <p> HTML </p>
+          <p> CSS </p>
+          <p> Python </p>
+          <p> UNIX </p>
+          <p> Git </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacts-section"> <!-- Contacts Section -->
+      <h2> Contacts </h2> 
+        <div class="container" id="contact-list">
+          <div class="container" id="contact-list-img">
+            <img src="https://i.pinimg.com/originals/9e/29/9b/9e299bb392428812cffbdadaf9272b15.png" id="phone-icon" alt="phone-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3178/3178158.png" id="email-icon" alt="email-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" id="linkedin-icon" alt="linkedin-icon">
+            <img src="https://cdn-icons-png.flaticon.com/256/25/25231.png" id="github-icon" alt="github-icon">
+          </div>
+
+          <ul class="contact-list">
+            <li id="phone-num"><a href="tel: 817-879-9209"> +1-817-879-9209 </a></li>
+            <li id="email"><a href="mailto: caitlyn.ly.14@gmail.com"> caitlyn.ly.14@gmail.com </a></li>
+            <li id="linkedin"><a href="https://www.linkedin.com/in/caitlyn-ly-9031813a6/"> Caitlyn Ly </a></li>
+            <li id="github"><a href="https://github.com/ccait-lyn"> @ccait-lyn </a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+   <p id="footer-text">
+    Thank you for visiting my site ~! Please contact me with any comments, feedback, or just to stay in touch. ˖ ࣪⊹˚꩜⋆𓏲ꪆ
+   </p>
+  </footer>
+</body>
+
+</html>
