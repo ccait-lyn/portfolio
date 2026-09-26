@@ -413,6 +413,10 @@ button {
   white-space: nowrap;
 }
 
+.projects-hint {
+  align-self: flex-start;
+}
+
 .about-content {
   position: relative;
   z-index: 1;
@@ -445,15 +449,6 @@ button {
 }
 
 .matcha-icon {
-  top: 0;
-  left: -2.61%;
-  right: -2.61%;
-  bottom: -5.23%;
-  width: 105.22%;
-  height: 105.23%;
-}
-
-.bear-icon {
   top: 0;
   left: -2.61%;
   right: -2.61%;
@@ -786,6 +781,7 @@ body.modal-open {
   align-items: center;
   gap: 19px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .static-folder-button .folder-label {

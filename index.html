@@ -32,7 +32,7 @@
       <div class="main-row">
         <div class="intro">
           <h1>Welcome to Caitlyn&rsquo;s portfolio!</h1>
-          <p class="hint">(drag the folders around, and click to navigate to a new page!)</p>
+          <p class="hint">(Drag the folders around, and click to navigate to a new page!)</p>
         </div>
 
         <div class="buttons" id="buttons">
@@ -104,10 +104,10 @@
 
     <p class="about-body">
       I am currently a student at the University of Texas at Arlington, pursuing a Bachelors of Science in Computer Science. 
-      I have always been very passionate about design and tech, and what better way to combine my passions in the field of Design Systems and UI/ UX Design!
+      I am very passionate about design and tech, and my fields of interest are SWE, Design Systems, and UI/ UX Design!
     </p>
 
-    <p class="about-hint">(you can drag these icons around too! <b>double-click</b> them to learn more)</p>
+    <p class="about-hint">(You can drag these icons around too! <b>Double-click</b> them to learn more.)</p>
 
     <div class="about-content">
 
@@ -118,13 +118,6 @@
             <img class="bleed-icon matcha-icon" src="assets/matcha-icon.svg" alt="matcha-icon" />
           </span>
           <span class="folder-label">current favs</span>
-        </button>
-
-        <button class="folder-button" type="button" data-target="more-about-me">
-          <span class="icon-visual">
-            <img class="bleed-icon bear-icon" src="assets/bear-icon.svg" alt="bear-icon" />
-          </span>
-          <span class="folder-label">more abt me!</span>
         </button>
 
         <button class="folder-button" type="button" data-target="interests">
@@ -195,41 +188,6 @@
         </div>
       </div>
 
-      <!-- MORE ABOUT ME POP UP -->
-      <div
-        class="about-modal"
-        id="modal-more-about-me"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-more-about-me-title"
-        hidden
-      >
-        <div class="modal-titlebar">
-          <span class="window-dots">
-            <button class="window-dot dot-close" type="button" aria-label="Close window"></button>
-            <span class="window-dot dot-min" aria-hidden="true"></span>
-            <span class="window-dot dot-max" aria-hidden="true"></span>
-          </span>
-          <p class="modal-filename" id="modal-more-about-me-title">more-about-me.txt</p>
-        </div>
-
-        <div class="modal-content-area">
-          <div class="modal-text">
-            <h3 class="modal-heading">more about me</h3>
-            <p class="modal-subheading">More fun facts about me!</p>
-
-            <p><b>
-              What drew you to UI/UX Design?
-            </p></b>
-
-            <p>
-              I've always loved building things and expressing my creativity. When I got to high school, I began branching into graphic design and coding, and was instantly drawn to both. 
-              One day I discovered the field of UI/UX design, and the rest is history!
-            </p>
-          </div>
-        </div>
-      </div>
-
       <!-- INTERESTS POP UP -->
       <div
         class="about-modal"
@@ -281,6 +239,8 @@
       </div>
     </div>
 
+    <p class="about-hint projects-hint"><b>Double-click</b> a folder to learn more!</p>
+
     <div class="window-container">
       <div class="window-titlebar">
         <img class="fake-buttons" src="assets/fake-window-buttons.svg" alt="fake-window-buttons" />
@@ -288,7 +248,7 @@
       </div>
 
       <div class="projects-content">
-        <div class="static-folder-button">
+        <div class="static-folder-button" data-target="portfolio-website">
           <span class="folder-visual">
             <span class="card card-color" style="background:#f4e6a6;"></span>
             <span class="card card-white"></span>
@@ -297,15 +257,84 @@
           <span class="folder-label">portfolio website</span>
         </div>
 
-        <div class="static-folder-button">
+        <div class="static-folder-button" data-target="knowlabel">
           <span class="folder-visual">
             <span class="card card-color" style="background:#664838;"></span>
             <span class="card card-white"></span>
             <img class="folder-icon" src="assets/folder-brown.svg" alt="brown-folder" />
           </span>
-          <span class="folder-label">knowlabel<br />(wip)</span>
+          <span class="folder-label">knowlabel</span>
         </div>
       </div>
+    </div>
+
+    <!-- PROJECTS PAGE POP-UP WINDOWS -->
+    <div class="about-modal-overlay" id="projects-modal-overlay" hidden>
+
+      <!-- PORTFOLIO WEBSITE POP UP -->
+      <div
+        class="about-modal"
+        id="modal-portfolio-website"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-portfolio-website-title"
+        hidden
+      >
+        <div class="modal-titlebar">
+          <span class="window-dots">
+            <button class="window-dot dot-close" type="button" aria-label="Close window"></button>
+            <span class="window-dot dot-min" aria-hidden="true"></span>
+            <span class="window-dot dot-max" aria-hidden="true"></span>
+          </span>
+          <p class="modal-filename" id="modal-portfolio-website-title">portfolio-website.txt</p>
+        </div>
+
+        <div class="modal-content-area">
+          <div class="modal-text">
+            <h3 class="modal-heading">portfolio website</h3>
+            <p class="modal-subheading">This very site!</p>
+
+            <p>
+              <ul class="modal-list">
+                <li><b>Languages:</b> HTML, CSS, JavaScript</li>
+                <li><b>Design Tools:</b> Figma</li>
+              </ul>
+              An interactive website created to showcase my projects and progress!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- KNOWLABEL POP UP -->
+      <div
+        class="about-modal"
+        id="modal-knowlabel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-knowlabel-title"
+        hidden
+      >
+        <div class="modal-titlebar">
+          <span class="window-dots">
+            <button class="window-dot dot-close" type="button" aria-label="Close window"></button>
+            <span class="window-dot dot-min" aria-hidden="true"></span>
+            <span class="window-dot dot-max" aria-hidden="true"></span>
+          </span>
+          <p class="modal-filename" id="modal-knowlabel-title">knowlabel.txt</p>
+        </div>
+
+        <div class="modal-content-area">
+          <div class="modal-text">
+            <h3 class="modal-heading">knowlabel</h3>
+            <p class="modal-subheading">Work in progress!</p>
+
+            <p>
+              Details on this project are still being written up. Check back soon for more!
+            </p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 

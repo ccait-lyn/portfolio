@@ -167,58 +167,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // ---------- About Me pop-up windows (double-click an icon) ----------
-  // Each About-page icon has a `data-target` (current-favs / more-about-me /
-  // interests) that matches a `#modal-<target>` window in the markup.
-  const aboutModalOverlay = document.getElementById('about-modal-overlay');
+  // ---------- Pop-up windows (double-click an icon) ----------
+  // Any icon with a `data-target` (About-page: current-favs / interests;
+  // Projects-page: portfolio-website / knowlabel) opens the matching
+  // `#modal-<target>` window, wherever it lives on the page. Each modal
+  // overlay (`.about-modal-overlay`) only ever shows its own modals.
+  const modalOverlays = document.querySelectorAll('.about-modal-overlay');
 
-  if (aboutModalOverlay) {
-    const aboutModals = aboutModalOverlay.querySelectorAll('.about-modal');
-    const aboutIcons = document.querySelectorAll('#about-buttons .folder-button');
+  if (modalOverlays.length) {
+    const modalIcons = document.querySelectorAll('[data-target]');
     let lastFocused = null;
 
     const openModal = (name) => {
       const modal = document.getElementById(`modal-${name}`);
       if (!modal) return;
+      const overlay = modal.closest('.about-modal-overlay');
+      if (!overlay) return;
 
       lastFocused = document.activeElement;
-      aboutModals.forEach((m) => {
+      overlay.querySelectorAll('.about-modal').forEach((m) => {
         m.hidden = m !== modal;
       });
-      aboutModalOverlay.hidden = false;
+      overlay.hidden = false;
       document.body.classList.add('modal-open');
 
       const closeBtn = modal.querySelector('.dot-close');
       if (closeBtn) closeBtn.focus();
     };
 
-    const closeModal = () => {
-      aboutModalOverlay.hidden = true;
+    const closeModal = (overlay) => {
+      overlay.hidden = true;
       document.body.classList.remove('modal-open');
       if (lastFocused && typeof lastFocused.focus === 'function') {
         lastFocused.focus();
       }
     };
 
-    aboutIcons.forEach((icon) => {
+    modalIcons.forEach((icon) => {
       icon.addEventListener('dblclick', () => {
         const target = icon.getAttribute('data-target');
-        if (target) openModal(target);
+        if (target && document.getElementById(`modal-${target}`)) {
+          openModal(target);
+        }
       });
     });
 
-    aboutModalOverlay.querySelectorAll('.dot-close').forEach((btn) => {
-      btn.addEventListener('click', closeModal);
+    modalOverlays.forEach((overlay) => {
+      overlay.querySelectorAll('.dot-close').forEach((btn) => {
+        btn.addEventListener('click', () => closeModal(overlay));
+      });
+
+      // Click on the blurred backdrop (outside the window) closes it.
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) closeModal(overlay);
+      });
     });
 
-    // Click on the blurred backdrop (outside the window) closes it.
-    aboutModalOverlay.addEventListener('click', (e) => {
-      if (e.target === aboutModalOverlay) closeModal();
-    });
-
-    // Esc closes it.
+    // Esc closes whichever overlay is open.
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !aboutModalOverlay.hidden) closeModal();
+      if (e.key !== 'Escape') return;
+      modalOverlays.forEach((overlay) => {
+        if (!overlay.hidden) closeModal(overlay);
+      });
     });
   }
 
