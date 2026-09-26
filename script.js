@@ -243,7 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const photos = [
       { src: 'assets/matchas.jpg', filename: 'yummy-matcha.jpg' },
       { src: 'assets/caitlyn-pic.jpg', filename: 'caitlyn-pic.jpg' },
-      { src: 'assets/pottery-painting.jpg', filename: 'pottery-painting.jpg' },
       { src: 'assets/bao-bao.jpg', filename: 'bao-bao.jpg' },
       { src: 'assets/fav-people.jpg', filename: 'fav-people.jpg' },
     ];
