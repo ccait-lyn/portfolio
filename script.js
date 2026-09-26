@@ -203,8 +203,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
+    // Detect the double-click ourselves from two quick clicks rather than
+    // using `dblclick`: on phones the draggable icons have
+    // `touch-action: none`, which stops the browser from recognising a
+    // double-tap, so `dblclick` never fires there. Two taps still fire two
+    // `click`s, as does a mouse double-click on desktop.
+    const DOUBLE_CLICK_MS = 400;
+
     modalIcons.forEach((icon) => {
-      icon.addEventListener('dblclick', () => {
+      let lastClick = 0;
+
+      icon.addEventListener('click', (e) => {
+        // A click that ends a drag is cancelled by the folder handler.
+        if (e.defaultPrevented) {
+          lastClick = 0;
+          return;
+        }
+
+        const now = Date.now();
+        if (now - lastClick > DOUBLE_CLICK_MS) {
+          lastClick = now;
+          return;
+        }
+        lastClick = 0;
+
         const target = icon.getAttribute('data-target');
         if (target && document.getElementById(`modal-${target}`)) {
           openModal(target);
