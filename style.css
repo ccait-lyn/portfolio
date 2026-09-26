@@ -116,8 +116,7 @@ button {
   justify-content: center;
   gap: 50px;
   width: 100%;
-  flex: 1 0 0;
-  min-height: 0;
+  flex: 1 0 auto;
 }
 
 .home-path {
@@ -158,15 +157,6 @@ button {
   letter-spacing: -2px;
   max-width: 563px;
   word-break: break-word;
-}
-
-.intro .hint {
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 300;
-  font-size: 20px;
-  letter-spacing: -0.48px;
-  max-width: 563px;
 }
 
 .buttons {
@@ -291,14 +281,15 @@ button {
   justify-content: space-between;
   width: 100%;
   gap: 40px;
-  flex-wrap: wrap;
 }
 
+/* Above 968px the flower and heading always sit side by side: the heading
+   scales with the viewport and the flower shrinks into the remaining space. */
 .flower {
   position: relative;
-  width: 600px;
-  height: 600px;
-  flex-shrink: 0;
+  flex: 0 1 600px;
+  min-width: 0;
+  aspect-ratio: 1 / 1;
 }
 
 .flower img {
@@ -311,6 +302,7 @@ button {
   color: #2f241e;
   text-align: right;
   letter-spacing: -2px;
+  flex: none;
 }
 
 .intro-heading p {
@@ -321,11 +313,11 @@ button {
 }
 
 .intro-heading .line-1 {
-  font-size: 128px;
+  font-size: clamp(78px, calc(11.7vw - 36px), 128px);
 }
 
 .intro-heading .line-2 {
-  font-size: 100px;
+  font-size: clamp(61px, calc(9.15vw - 28px), 100px);
 }
 
 /* ---------- ABOUT ME PAGE ---------- */
@@ -345,11 +337,13 @@ button {
   position: relative;
   z-index: 1;
   display: flex;
-  align-items: flex-start;
+  /* wrap-reverse puts the path above the title once they no longer fit on
+     one line; it also flips the cross axis, so flex-end means "top" here. */
+  align-items: flex-end;
   justify-content: space-between;
   width: 100%;
   gap: 24px;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   color: #2f241e;
   line-height: 1.22;
 }
@@ -401,7 +395,7 @@ button {
   text-wrap: pretty;
 }
 
-.about-hint {
+.hint {
   position: relative;
   z-index: 1;
   margin: 0;
@@ -410,11 +404,14 @@ button {
   font-size: 20px;
   line-height: 1.22;
   color: #2f241e;
-  white-space: nowrap;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
-.projects-hint {
+.projects-page .hint {
   align-self: flex-start;
+  text-align: left;
 }
 
 .about-content {
@@ -1016,16 +1013,6 @@ body.modal-open {
   .main-row {
     justify-content: center;
   }
-  .flower {
-    width: 400px;
-    height: 400px;
-  }
-  .intro-heading .line-1 {
-    font-size: 84px;
-  }
-  .intro-heading .line-2 {
-    font-size: 64px;
-  }
   .about-title-heading {
     font-size: 64px;
   }
@@ -1054,6 +1041,32 @@ body.modal-open {
   }
 }
 
+@media (max-width: 968px) {
+  .intro-row {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+  }
+  .flower {
+    flex: none;
+    width: 100%;
+  }
+  .intro-container {
+    container-type: inline-size;
+  }
+  .intro-heading {
+    width: 100%;
+    text-align: center;
+  }
+  .intro-heading .line-1 {
+    font-size: 20cqw;
+  }
+  .intro-heading .line-2 {
+    font-size: 15.5cqw;
+  }
+}
+
 @media (max-width: 700px) {
   .landing-page,
   .intro-page,
@@ -1062,33 +1075,27 @@ body.modal-open {
   .contacts-page {
     padding: 32px;
   }
+  .home-path,
+  .intro-path,
+  .about-path,
+  .projects-path,
+  .contacts-path {
+    font-size: 14px;
+  }
   .intro h1 {
     font-size: 42px;
   }
   .buttons {
     gap: 30px 40px;
   }
-  .intro-row {
-    flex-direction: column-reverse;
-    align-items: flex-end;
-    gap: 24px;
-  }
-  .flower {
-    width: 220px;
-    height: 220px;
-  }
-  .intro-heading .line-1 {
-    font-size: 52px;
-  }
-  .intro-heading .line-2 {
-    font-size: 40px;
-  }
   .intro-container {
     gap: 60px;
     min-height: auto;
   }
   .about-title-row {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    flex-wrap: nowrap;
+    align-items: flex-start;
   }
   .about-title-heading {
     font-size: 42px;
@@ -1140,7 +1147,7 @@ body.modal-open {
   }
   .nav-bar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     height: auto;
     gap: 10px;
@@ -1148,6 +1155,56 @@ body.modal-open {
   }
   .nav-links {
     flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
+  }
+  /* Landing-page and Projects-page folders at ~80% of their full size */
+  .landing-page .folder-button,
+  .projects-page .static-folder-button {
+    gap: 15px;
+  }
+  .landing-page .folder-visual,
+  .projects-page .folder-visual {
+    width: 153px;
+    height: 122px;
+  }
+  .landing-page .card-color,
+  .projects-page .card-color {
+    top: 25px;
+    width: 153px;
+    height: 98px;
+  }
+  .landing-page .card-white,
+  .projects-page .card-white {
+    top: 16px;
+    left: 3px;
+    width: 147px;
+    height: 102px;
+  }
+  .landing-page .folder-label,
+  .projects-page .folder-label {
+    font-size: 19px;
+  }
+  .home-path,
+  .intro-path,
+  .about-path,
+  .projects-path,
+  .contacts-path {
+    font-size: 12px;
+  }
+  .hint {
+    font-size: 15px;
+  }
+  .contacts-sub {
+    font-size: 18px;
+  }
+  .projects-title-sub {
+    font-size: 15px;
+  }
+  .about-title-sub {
+    font-size: 15px;
+  }
+  .about-body {
+    font-size: 18px;
   }
 }
